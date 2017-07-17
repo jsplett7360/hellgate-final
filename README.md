@@ -1,3 +1,3 @@
 # README
 
-[Upskill](http://upskillcourses.com) Software-as-a-Service Ruby on Rails App
+[hellgate-final](http://hellgate.org) Software-as-a-Service Ruby on Rails App
