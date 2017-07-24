@@ -88,6 +88,42 @@
   margin-top: 5px;
 }
 
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+}
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
@@ -107,16 +143,31 @@
   background-color: #777;
 }
 .carousel-inner > .item > img {
-  position: absolute center;
-  margin-left: auto;
-  margin-right: auto;
+  position: absolute;
+  top: 0;
   left: 0;
-  right: 0; 
-  width: auto;
-  min-width: 500px;
-  height: auto;
-  max-height: 500px;
+  min-width: 100%;
+  height: 500px;
+  object-fit: contain;
 }
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 
 /* Featurettes
 ------------------------- */
@@ -132,7 +183,25 @@
   letter-spacing: -1px;
 }
 
- /* The navbar becomes detached from the top, so we round the corners */
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
   .navbar-wrapper .navbar {
     border-radius: 4px;
   }
@@ -147,12 +216,10 @@
   .featurette-heading {
     font-size: 50px;
   }
-  
-  .featurette-image {
-  max-height: 300px;
-  max-width: 300px;
-  }
+}
 
-footer {
-    margin: 50px 0;
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
 }
