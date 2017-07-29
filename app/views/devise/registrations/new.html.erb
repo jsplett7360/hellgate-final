@@ -2,22 +2,50 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="text-center">
-        <% if params[:plan] == '2' %>
-          <h1>Pro Account</h1>
-          <p>Sign up for the pro account for $10/month and get access to the community and contact information!</p>
+        <% if params[:plan] == '3' %>
+          <h1>Book a Show</h1>
+          <p>You get a show, unlimited drinks and a 3-course dinner for $100!</p>
         <% else %>
-          <h1>Basic Account</h1>
-          <p>Sign up for free and get basic access to the community.</p>
+          <% if params[:plan] == '4' %>
+            <h1>Book a Show</h1>
+            <p>You get a show and unlimited drinks $75!</p>
+          <% else %>
+            <% if params[:plan] == '5' %>
+              <h1>Book a Show</h1>
+              <p>You get a show for $50!</p>
+            <% else %>
+              <% if params[:plan] == '1' %>
+              <h1> Host Account</h1>
+              <p>Sign up for free and decide what dates you are available to host!  Enter your credit card so we can pay you for hosting your first show.</p>
+              <% else %>
+                <h1>Band Account</h1>
+                <p>Sign up for free and decide what dates you are availble to play!  Enter your credit card so we can pay you for playing your first show.</p>
+              <% end %>
+            <% end %>
+          <% end %>
         <% end %>
+        
       </div>
       
       <div class="well">
         <h2>Sign up</h2>
-        <% if params[:plan] == '2' %>
+        <% if params[:plan] == '3' %>
           <%= render "pro_form" %>
-        <% else %>
-          <%= render "basic_form" %>
-        <% end %>
+          <% else %>
+            <% if params[:plan] == '4' %>
+              <%= render "medium_form" %>
+              <% else %>
+                <% if params[:plan] == '5' %>
+                <%= render "basic_form" %>
+                  <% else %>
+                    <% if params[:plan] == '1' %>
+                  <%= render "host_form" %>
+                    <% else %>
+                    <%= render "band_form" %>
+          <% end %>
+              <% end %>
+                  <% end %>
+                    <% end %>
         <%= render "devise/shared/links" %>
       </div>
     </div>

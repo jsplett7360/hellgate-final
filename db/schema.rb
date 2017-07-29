@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20161019213325) do
 
   create_table "plans", force: :cascade do |t|
     t.string   "name"
+    t.string   "date"
     t.decimal  "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
