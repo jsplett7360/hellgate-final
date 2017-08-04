@@ -3,20 +3,29 @@
     <div class="col-md-6 col-md-offset-3">
       <div class="text-center">
         <% if params[:plan] == '2' %>
-          <h1>Pro Account</h1>
-          <p>Sign up for the pro account for $10/month and get access to the community and contact information!</p>
+          <h1>Host a Show</h1>
+          <p>Sign up below to get started hosting cool bands in your home!  Your credit card details will be stored so we can pay you after your first show.</p>
         <% else %>
-          <h1>Basic Account</h1>
-          <p>Sign up for free and get basic access to the community.</p>
+          <% if params[:plan] == '3' %>
+            <h1>Play a Show</h1>
+            <p>Sign up below to get started playing local shows!  Your credit card details will be stored so we can pay you after your first show.</p>
+          <% else %>
+            <h1>Book a show</h1>
+            <p>Choose the date of the show after you've signed up!</p>
+          <% end %>
         <% end %>
       </div>
       
       <div class="well">
         <h2>Sign up</h2>
         <% if params[:plan] == '2' %>
-          <%= render "pro_form" %>
+          <%= render "host_form" %>
         <% else %>
-          <%= render "basic_form" %>
+          <% if params[:plan] == '3' %>
+            <%= render "band_form" %>
+          <% else %>
+            <%= render "guest_form" %>
+          <% end %>
         <% end %>
         <%= render "devise/shared/links" %>
       </div>
