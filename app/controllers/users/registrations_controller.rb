@@ -12,7 +12,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
         if resource.plan_id == 2
           resource.save_with_subscription
         else
+        if resource.plan_id == 3
+          resource.save_with_subscription
+        else
           resource.save
+        end
         end
       end
     end
@@ -20,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   private
     def select_plan
-      unless (params[:plan] == '1' || params[:plan] == '2')
+      unless (params[:plan] == '1' || params[:plan] == '2' || params[:plan] == '3')
         flash[:notice] = "Please select a membership plan to sign up."
         redirect_to root_url
       end
