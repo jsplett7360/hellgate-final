@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         if resource.plan_id == 3
           resource.save_with_subscription
         else
-          resource.save
+          resource.save_with_subscription
         end
         end
       end
